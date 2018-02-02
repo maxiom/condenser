@@ -1,0 +1,102 @@
+.Header {
+  position: fixed;
+  backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+  padding-right: 0.25rem;
+  @include themify($themes) {
+    background-color: themed('navBackgroundColor');
+    border-bottom: themed('border');
+  }
+}
+
+.Header__nav {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    max-width: none;
+}
+
+.ConnectionError {
+  margin-right: 4rem;
+  color: #ec5840;
+}
+
+.Header__logotype {
+  transition: 0.2s all ease-in-out;
+  height: 37px;
+  display: flex;
+  align-items: baseline;
+  .icon-svg {
+    @include themify($themes) {
+      fill: themed('colorAccent');
+    }
+  }
+
+  &-beta{
+    position: absolute;
+    top: 38px;
+    left: 136px;
+  }
+}
+
+.Header__sort {
+    display: flex;
+    justify-content: center;
+}
+
+.Header__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    > span {
+        > a {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+            font-size: 1.125rem;
+        }
+    }
+    > a {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+    div.LoadingIndicator {
+        padding-right: 0.5rem;
+    }
+}
+
+.Header__userpic {
+    display: block;
+    width: 42px;
+    height: 42px;
+  .Userpic {
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+span.Header__hamburger.toggle-menu {
+    width: 1rem;
+    height: 1rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    @include hamburger();
+    &::after {
+      transition: 0.2s all ease-in-out;
+      @include themify($themes) {
+        background: themed('textColorPrimary');
+        box-shadow: 0 7px 0 themed('textColorPrimary'), 0 14px 0 themed('textColorPrimary');
+      }
+    }
+    &:hover {
+      &::after {
+        @include themify($themes) {
+          background: themed('textColorAccent');
+          box-shadow: 0 7px 0 themed('textColorAccent'), 0 14px 0 themed('textColorAccent');
+        }
+      }
+    }
+}
